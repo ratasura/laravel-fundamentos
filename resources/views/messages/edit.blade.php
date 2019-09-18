@@ -6,19 +6,25 @@
 <form method="POST" class="" action="{{route('mensajes.update', $message->id)}}" >
   {!! method_field('PUT') !!}
   @csrf
-    <label for="nombre">Nombre
-    <input type="text" name="nombre" value="{{$message->nombre}}"><br>
-    {!!$errors->first('nombre', '<span class=error>:message</span>')!!}<br>
-    </label>
-    <label for="email">Email
-    <input type="email" name="email" value="{{$message->email}}"><br>
-    {!!$errors->first('email','<span class=error>:message</span>')!!}<br>
-    </label>
-    <label for="mensaje">Mensaje
-    <textarea name="mensaje">{{$message->mensaje }}</textarea><br>
-    {!!$errors->first('mensaje', '<span class=error>:message</span>')!!}<br>
-    </label>
-    <input type="submit" name="enviar" value="Enviar">
+    <p>
+      <label for="nombre">Nombre
+        <input   class="form-control" type="text" name="nombre" value="{{$message->nombre}}">
+        {!!$errors->first('nombre', '<span class=error>:message</span>')!!}
+        </label>
+    </p>
+    <p>
+        <label for="email">Email
+            <input  class="form-control" type="email" name="email" value="{{$message->email}}">
+            {!!$errors->first('email','<span class=error>:message</span>')!!}
+            </label>
+    </p>
+    <p>
+        <label for="mensaje">Mensaje
+            <textarea class="form-control"  name="mensaje">{{$message->mensaje }}</textarea>
+            {!!$errors->first('mensaje', '<span class=error>:message</span>')!!}
+            </label>
+    </p>
+    <input class="btn btn-primary" type="submit" name="enviar" value="Enviar">
 </form>
 
 @stop

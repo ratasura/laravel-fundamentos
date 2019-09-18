@@ -9,6 +9,9 @@
     <title>Mi sitio</title>
   </head>
   <body>
+    <div class="container">
+
+    
     <header>
       {{-- <h1>{{request()->is('/') ? 'Estas en el home' : 'No estas en el home'}}</h1> --}}
       <?php  function activeMenu($url){
@@ -31,9 +34,8 @@
                       </li>
 
                         @if (auth()->check())
-                          <a class="nav-link" href="/logout">Cerrar Sesion de {{auth()->user()->name}} </a>
-                          <a class="nav-link"
-                            href="{{ route('mensajes.index') }}">Mensajes</a>
+                      <li><a class="nav-link" href="/logout">Cerrar Sesion de {{auth()->user()->name}} </a></li>
+                          <li><a class="nav-link" href="{{ route('mensajes.index') }}">Mensajes</a></li>
                         @endif
                         @if (auth()->guest())
                         <a class="nav-link"  href="/login">Login</a>
@@ -76,8 +78,11 @@
         @endif
       </nav> --}}
     </header>
-    @yield('contenido')
-
-    <footer>Coprygth {{date('Y')}}</footer>
+  </div>
+    <div class="container">
+        @yield('contenido')
+      <footer>Coprygth {{date('Y')}}</footer>
+    </div>
+    
   </body>
 </html>
